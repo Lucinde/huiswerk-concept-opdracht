@@ -143,13 +143,15 @@ button:hover {
 }
 
 .navigation {
-    align-items: flex-end;
     margin: 20px;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 .navigation ul {
     list-style-type: none;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: row;
     gap: 45px;
 }
@@ -164,7 +166,7 @@ button:hover {
 
 .header-message {
     text-align: center;
-    margin: 125px 0 250px 0;
+    margin: 50px 0 250px 0;
     max-width: 750px;
     position: relative;
 }
@@ -196,26 +198,10 @@ button:hover {
 /* --------------- 4.3 Work ------------------- */
 #work article {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 75px;
-    align-items: center;
+    flex-direction: column-reverse;
 }
-
-#work article:nth-child(even){
-    flex-direction: row-reverse;
-}
-
-#work article:last-of-type {
-    margin-bottom: 0;
-}
-
-#work article div {
-    flex-basis: 25%;
-}
-
 #work span {
-    flex-basis: 60%;
+    margin-bottom: 25px;
 }
 #work img {
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.15);
@@ -238,6 +224,7 @@ a.view {
     letter-spacing: 0.15em;
     display: inline-block;
     margin-top:25px;
+    margin-bottom: 25px;
 }
 
 /* --------------- 4.4 Services ------------------- */
@@ -246,12 +233,13 @@ a.view {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 35px;
+    margin: 0 25px;
 }
 
 .service-articles article {
     flex-basis: 300px;
     flex-grow: 1;
-    flex-shrink: 0;
+    flex-shrink: 1;
     border: 1px solid var(--purple);
     padding: 20px;
     box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.15);
@@ -262,8 +250,12 @@ a.view {
 }
 
 /* --------------- 4.5 Contact ------------------- */
+section#contact {
+    padding: 100px 0 25px 0;
+}
+
 #contact .inner-container {
-    max-width: 750px;
+    flex-basis: 750px;
 }
 
 form {
@@ -284,6 +276,7 @@ textarea {
     padding: 15px;
     border-radius: 5px;
     border: 1px inset;
+    width: 100%;
 }
 
 form button {
@@ -307,3 +300,49 @@ footer {
 }
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
+@media screen and (min-width: 992px) {
+    .navigation {
+        align-items: flex-end;
+        font-weight: 400;
+    }
+
+    .header-message {
+        margin: 125px 0 250px 0;
+    }
+
+    #work article {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 75px;
+        align-items: center;
+    }
+
+    #work article:nth-child(even){
+        flex-direction: row-reverse;
+    }
+
+    #work article:last-of-type {
+        margin-bottom: 0;
+    }
+
+    #work article div {
+        flex-basis: 25%;
+    }
+
+    #work span {
+        flex-basis: 60%;
+        margin-bottom: 0;
+    }
+    a.view {
+        margin-bottom: 0;
+    }
+
+    .service-articles {
+        margin: 0;
+    }
+
+    section#contact {
+        padding: 100px 0;
+    }
+}
