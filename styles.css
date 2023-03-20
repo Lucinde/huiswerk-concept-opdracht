@@ -114,6 +114,8 @@ img.icon {
 
 main section:nth-of-type(2) {
     background-color: var(--light-grey);
+    z-index: 1;
+    padding: 165px 0;
 }
 
 button {
@@ -131,6 +133,21 @@ button:hover {
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.16) inset;
     cursor: pointer;
 }
+.skew-bottom {
+    position: relative;
+}
+.skew-bottom::after {
+    background-color: #fff;
+    display: block;
+    height: 85px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: -45px;
+    transform: skew(0deg, 2deg);
+    content: " ";
+    z-index: 2;
+}
 
 /* --------------- 3.2 Other --------------------------- */
 
@@ -139,7 +156,7 @@ button:hover {
 /* --------------- 4.1 Header ------------------------- */
 .bg-highlight {
     background: rgb(72, 69, 228);
-    background: linear-gradient(90deg, rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 100%);
+    background: url("assets/noise-texture.png"), linear-gradient(90deg, rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 100%);
 }
 
 .navigation {
@@ -191,6 +208,17 @@ button:hover {
     text-align: center;
 }
 
+#hello .outer-container::after {
+    content: "hello";
+    position: absolute;
+    font-weight: bold;
+    font-size: 150px;
+    color: var(--light-purple);
+    margin-top: 0;
+    top: 0;
+    z-index: -1;
+}
+
 #hello h3:last-of-type {
     margin-bottom: 3em;
 }
@@ -206,7 +234,16 @@ button:hover {
 #work img {
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.15);
 }
-
+#work .outer-container::after {
+    content: "work";
+    position: absolute;
+    font-weight: bold;
+    font-size: 150px;
+    color: #FFF;
+    margin-top: 0;
+    top: 40px;
+    z-index: -1;
+}
 #work h2:after {
     content: "";
     display: block;
@@ -222,12 +259,38 @@ a.view {
     font-weight: bold;
     font-size: 0.7rem;
     letter-spacing: 0.15em;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin-top:25px;
     margin-bottom: 25px;
 }
 
+a.view::after {
+    content: " ";
+    width: 15px;
+    height: 2px;
+    margin-left: 5px;
+    display: inline-block;
+    background-color: var(--purple);
+    transition: width .35s ease-in-out;
+}
+
+a.view:hover::after {
+    width: 75px;
+}
+
 /* --------------- 4.4 Services ------------------- */
+#services .outer-container::after {
+    content: "services";
+    position: absolute;
+    font-weight: bold;
+    font-size: 80px;
+    color: var(--light-purple);
+    margin-top: 0;
+    top: 35px;
+    z-index: -1;
+}
+
 .service-articles {
     display: flex;
     flex-direction: row;
@@ -243,6 +306,7 @@ a.view {
     border: 1px solid var(--purple);
     padding: 20px;
     box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
 }
 
 .service-articles .icon {
@@ -342,7 +406,25 @@ footer {
         margin: 0;
     }
 
-    section#contact {
+    #contact {
         padding: 100px 0;
+    }
+
+    #services {
+        padding: 250px 0;
+    }
+
+    #work .outer-container::after,
+    #hello .outer-container::after {
+        font-size: 350px;
+    }
+
+    #services .outer-container::after {
+        font-size: 250px;
+        top: 20px;
+    }
+
+    main section:nth-of-type(2) {
+        padding: 250px 0;
     }
 }
