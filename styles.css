@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;700&display=swap');
+
 /*////////////////////////
     Table of Contents
     1. Global Styles
@@ -8,24 +10,421 @@
     4. Areas
         4.1 Header
         4.2 Introduction
-        etc.
+        4.3 Work
+        4.4 Services
+        4.5 Contact
+        4.6 Footer
     5. Media Queries
 ////////////////////////*/
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
+:root {
+    --purple: #5722CD;
+    --light-purple: #F2F0FF; /* (voor de grote zwevende woorden, zoals "hello" en "services") */
+    --blue: #4845E4;
+    --pink: #ED4385;
+    --main-text-color: #0C0C0C;
+    --grey: #7A7A7A;
+    --light-grey: #F3F6F9;
+    --light-text: #FFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-container {
+    flex-basis: 1200px;
+    margin: 0 20px;
+    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
 
 /* ------------------------------- 2. Typography ----------------------------------- */
+h1, h2, h3, h4, h5 {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.8em;
+}
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8em;
+}
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--purple);
+}
+
+a:hover {
+    color: var(--blue);
+}
 
 /* ------------------------------- 3. Layout --------------------------------------- */
 
 /* --------------- 3.1 Reusables ----------------------- */
+.light-text,
+.light-text a {
+    color: var(--light-text);
+}
+
+.purple-text {
+    color: var(--purple);
+}
+
+main section {
+    padding: 100px 0;
+}
+
+img {
+    width: 100%;
+}
+
+img.icon {
+    width: 25%;
+}
+
+main section:nth-of-type(2) {
+    background-color: var(--light-grey);
+    z-index: 1;
+    padding: 165px 0;
+}
+
+button {
+    background-color: var(--pink);
+    color: var(--light-text);
+    padding: 16px 25px;
+    border-radius: 25px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.16);
+}
+
+button:hover {
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.16) inset;
+    cursor: pointer;
+}
+.skew-bottom {
+    position: relative;
+}
+.skew-bottom::after {
+    background-color: #fff;
+    display: block;
+    height: 85px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: -45px;
+    transform: skew(0deg, 2deg);
+    content: " ";
+    z-index: 2;
+}
 
 /* --------------- 3.2 Other --------------------------- */
 
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------------- */
+.bg-highlight {
+    background: rgb(72, 69, 228);
+    background: url("assets/noise-texture.png"), linear-gradient(90deg, rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 100%);
+}
+
+.navigation {
+    margin: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    gap: 45px;
+}
+
+.navigation a {
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    color: var(--main-text-color);
+}
+
+.header-message {
+    text-align: center;
+    margin: 50px 0 250px 0;
+    max-width: 750px;
+    position: relative;
+}
+
+.header-message p {
+    font-size: 20px;
+}
+
+.header-message .squiggle-stripe {
+    position: absolute;
+    background-image: url(/assets/squiggle_line_stripe.svg);
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    bottom: -250px;
+    left: calc(50% - 50px);
+}
 
 /* --------------- 4.2 Introduction ------------------- */
+#hello .inner-container {
+    max-width: 750px;
+    text-align: center;
+}
+
+#hello .outer-container::after {
+    content: "hello";
+    position: absolute;
+    font-weight: bold;
+    font-size: 150px;
+    color: var(--light-purple);
+    margin-top: 0;
+    top: 0;
+    z-index: -1;
+}
+
+#hello h3:last-of-type {
+    margin-bottom: 3em;
+}
+
+/* --------------- 4.3 Work ------------------- */
+#work article {
+    display: flex;
+    flex-direction: column-reverse;
+}
+#work span {
+    margin-bottom: 25px;
+}
+#work img {
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.15);
+}
+#work .outer-container::after {
+    content: "work";
+    position: absolute;
+    font-weight: bold;
+    font-size: 150px;
+    color: #FFF;
+    margin-top: 0;
+    top: 40px;
+    z-index: -1;
+}
+#work h2:after {
+    content: "";
+    display: block;
+    background: url("/assets/squiggle_line.svg") no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 7px;
+    margin: 30px 0;
+}
+
+a.view {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+
+a.view::after {
+    content: " ";
+    width: 15px;
+    height: 2px;
+    margin-left: 5px;
+    display: inline-block;
+    background-color: var(--purple);
+    transition: width .35s ease-in-out;
+}
+
+a.view:hover::after {
+    width: 75px;
+}
+
+/* --------------- 4.4 Services ------------------- */
+#services .outer-container::after {
+    content: "services";
+    position: absolute;
+    font-weight: bold;
+    font-size: 80px;
+    color: var(--light-purple);
+    margin-top: 0;
+    top: 35px;
+    z-index: -1;
+}
+
+.service-articles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin: 0 25px;
+}
+
+.service-articles article {
+    flex-basis: 300px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border: 1px solid var(--purple);
+    padding: 20px;
+    box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+}
+
+.service-articles .icon {
+    margin-bottom: 15px;
+}
+
+/* --------------- 4.5 Contact ------------------- */
+section#contact {
+    padding: 100px 0 25px 0;
+}
+
+#contact .inner-container {
+    flex-basis: 750px;
+}
+
+form {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    margin-bottom:25px;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px inset;
+    width: 100%;
+}
+
+form button {
+    width: fit-content;
+    margin: 0 auto;
+    padding-inline: 50px;
+}
+
+::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    color: var(--grey);
+}
+
+/* --------------- 4.6 Footer ------------------- */
+footer {
+    background-color: var(--main-text-color);
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
+@media screen and (min-width: 992px) {
+    .navigation {
+        align-items: flex-end;
+        font-weight: 400;
+    }
+
+    .header-message {
+        margin: 125px 0 250px 0;
+    }
+
+    #work article {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 75px;
+        align-items: center;
+    }
+
+    #work article:nth-child(even){
+        flex-direction: row-reverse;
+    }
+
+    #work article:last-of-type {
+        margin-bottom: 0;
+    }
+
+    #work article div {
+        flex-basis: 25%;
+    }
+
+    #work span {
+        flex-basis: 60%;
+        margin-bottom: 0;
+    }
+    a.view {
+        margin-bottom: 0;
+    }
+
+    .service-articles {
+        margin: 0;
+    }
+
+    #contact {
+        padding: 100px 0;
+    }
+
+    #services {
+        padding: 250px 0;
+    }
+
+    #work .outer-container::after,
+    #hello .outer-container::after {
+        font-size: 350px;
+    }
+
+    #services .outer-container::after {
+        font-size: 250px;
+        top: 20px;
+    }
+
+    main section:nth-of-type(2) {
+        padding: 250px 0;
+    }
+}
